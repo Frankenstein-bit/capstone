@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "capstone_static", "capstone_static\capstone_static.vcxproj", "{5B01D900-2359-44CA-9914-6B0C6AFB7BE7}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test", "test\test.vcxproj", "{B291E0D9-4B39-4AF8-971D-A015B78D54A1}"
@@ -64,6 +66,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_iter", "test_iter\test
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "capstone_dll", "capstone_dll\capstone_dll.vcxproj", "{2171C0E8-4915-49B9-AC23-A484FA08C126}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "capstone_static_driver", "capstone_static\capstone_static_driver.vcxproj", "{4789478F-9738-40BB-9CD0-D2034A2AC35B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -161,14 +165,6 @@ Global
 		{B09819BB-7EF1-4B04-945D-58117E6940A1}.Release|Win32.Build.0 = Release|Win32
 		{B09819BB-7EF1-4B04-945D-58117E6940A1}.Release|x64.ActiveCfg = Release|x64
 		{B09819BB-7EF1-4B04-945D-58117E6940A1}.Release|x64.Build.0 = Release|x64
-		{2171C0E8-4915-49B9-AC23-A484FA08C126}.Debug|Win32.ActiveCfg = Debug|Win32
-		{2171C0E8-4915-49B9-AC23-A484FA08C126}.Debug|Win32.Build.0 = Debug|Win32
-		{2171C0E8-4915-49B9-AC23-A484FA08C126}.Debug|x64.ActiveCfg = Debug|x64
-		{2171C0E8-4915-49B9-AC23-A484FA08C126}.Debug|x64.Build.0 = Debug|x64
-		{2171C0E8-4915-49B9-AC23-A484FA08C126}.Release|Win32.ActiveCfg = Release|Win32
-		{2171C0E8-4915-49B9-AC23-A484FA08C126}.Release|Win32.Build.0 = Release|Win32
-		{2171C0E8-4915-49B9-AC23-A484FA08C126}.Release|x64.ActiveCfg = Release|x64
-		{2171C0E8-4915-49B9-AC23-A484FA08C126}.Release|x64.Build.0 = Release|x64
 		{5B880AB5-E54F-11E3-8C65-B8E8563B7BDE}.Debug|Win32.ActiveCfg = Debug|Win32
 		{5B880AB5-E54F-11E3-8C65-B8E8563B7BDE}.Debug|Win32.Build.0 = Debug|Win32
 		{5B880AB5-E54F-11E3-8C65-B8E8563B7BDE}.Debug|x64.ActiveCfg = Debug|x64
@@ -185,6 +181,22 @@ Global
 		{48EB18D5-7060-4C54-B8B1-BFF077329604}.Release|Win32.Build.0 = Release|Win32
 		{48EB18D5-7060-4C54-B8B1-BFF077329604}.Release|x64.ActiveCfg = Release|x64
 		{48EB18D5-7060-4C54-B8B1-BFF077329604}.Release|x64.Build.0 = Release|x64
+		{2171C0E8-4915-49B9-AC23-A484FA08C126}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2171C0E8-4915-49B9-AC23-A484FA08C126}.Debug|Win32.Build.0 = Debug|Win32
+		{2171C0E8-4915-49B9-AC23-A484FA08C126}.Debug|x64.ActiveCfg = Debug|x64
+		{2171C0E8-4915-49B9-AC23-A484FA08C126}.Debug|x64.Build.0 = Debug|x64
+		{2171C0E8-4915-49B9-AC23-A484FA08C126}.Release|Win32.ActiveCfg = Release|Win32
+		{2171C0E8-4915-49B9-AC23-A484FA08C126}.Release|Win32.Build.0 = Release|Win32
+		{2171C0E8-4915-49B9-AC23-A484FA08C126}.Release|x64.ActiveCfg = Release|x64
+		{2171C0E8-4915-49B9-AC23-A484FA08C126}.Release|x64.Build.0 = Release|x64
+		{4789478F-9738-40BB-9CD0-D2034A2AC35B}.Debug|Win32.ActiveCfg = Debug_WDK|Win32
+		{4789478F-9738-40BB-9CD0-D2034A2AC35B}.Debug|Win32.Build.0 = Debug_WDK|Win32
+		{4789478F-9738-40BB-9CD0-D2034A2AC35B}.Debug|x64.ActiveCfg = Debug_WDK|x64
+		{4789478F-9738-40BB-9CD0-D2034A2AC35B}.Debug|x64.Build.0 = Debug_WDK|x64
+		{4789478F-9738-40BB-9CD0-D2034A2AC35B}.Release|Win32.ActiveCfg = Release_WDK|Win32
+		{4789478F-9738-40BB-9CD0-D2034A2AC35B}.Release|Win32.Build.0 = Release_WDK|Win32
+		{4789478F-9738-40BB-9CD0-D2034A2AC35B}.Release|x64.ActiveCfg = Release_WDK|x64
+		{4789478F-9738-40BB-9CD0-D2034A2AC35B}.Release|x64.Build.0 = Release_WDK|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
