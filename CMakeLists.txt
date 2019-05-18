@@ -53,6 +53,7 @@ endforeach(supported_architecture)
 option(CAPSTONE_X86_REDUCE "x86 with reduce instruction sets to minimize library" OFF)
 option(CAPSTONE_X86_ATT_DISABLE "Disable x86 AT&T syntax" OFF)
 option(CAPSTONE_OSXKERNEL_SUPPORT "Support to embed Capstone into OS X Kernel extensions" OFF)
+option(CAPSTONE_WINKERNEL_SUPPORT "Support to embed Capstone into Windows kernel-mode drivers" ON)
 
 if (MSVC)
     set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
@@ -432,6 +433,16 @@ if (CAPSTONE_OSXKERNEL_SUPPORT)
     add_definitions(-DCAPSTONE_HAS_OSXKERNEL)
 endif ()
 
+if (CAPSTONE_WINKERNEL_SUPPORT)
+    set(SOURCES_WINKERNEL
+        windows/winkernel_mm.c
+        )
+    set(HEADERS_WINKERNEL
+        windows/winkernel_mm.h
+        )
+    set(TEST_SOURCES ${TEST_SOURCES} test_winkernel.cpp)
+endif ()
+
 set(ALL_SOURCES
     ${SOURCES_ENGINE}
     ${SOURCES_ARM}
@@ -446,6 +457,7 @@ set(ALL_SOURCES
     ${SOURCES_TMS320C64X}
     ${SOURCES_M680X}
     ${SOURCES_EVM}
+    ${SOURCES_WINKERNEL}
     )
 
 set(ALL_HEADERS
@@ -463,6 +475,7 @@ set(ALL_HEADERS
     ${HEADERS_TMS320C64X}
     ${HEADERS_M680X}
     ${HEADERS_EVM}
+    ${HEADERS_WINKERNEL}
     )
 
 include_directories("${PROJECT_SOURCE_DIR}/include")
@@ -476,6 +489,12 @@ if (CAPSTONE_BUILD_STATIC)
     add_library(capstone-static STATIC ${ALL_SOURCES} ${ALL_HEADERS})
     set_property(TARGET capstone-static PROPERTY OUTPUT_NAME capstone)
     set(default-target capstone-static)
+endif ()
+
+if (CAPSTONE_BUILD_STATIC)
+    add_library(capstone_static_winkernel STATIC ${ALL_SOURCES} ${ALL_HEADERS})
+    set_property(TARGET capstone_static_winkernel PROPERTY OUTPUT_NAME capstone_static_winkernel)
+    set(default-target capstone_static_winkernel)
 endif ()
 
 # Force static runtime libraries
@@ -543,6 +562,7 @@ source_group("Source\\M68K" FILES ${SOURCES_M68K})
 source_group("Source\\TMS320C64x" FILES ${SOURCES_TMS320C64X})
 source_group("Source\\M680X" FILES ${SOURCES_M680X})
 source_group("Source\\EVM" FILES ${SOURCES_EVM})
+source_group("Windows" FILES ${SOURCES_WINKERNEL})
 
 source_group("Include\\Common" FILES ${HEADERS_COMMON})
 source_group("Include\\Engine" FILES ${HEADERS_ENGINE})
@@ -558,6 +578,7 @@ source_group("Include\\M68K" FILES ${HEADERS_M68K})
 source_group("Include\\TMS320C64x" FILES ${HEADERS_TMS320C64X})
 source_group("Include\\M680X" FILES ${HEADERS_MC680X})
 source_group("Include\\EVM" FILES ${HEADERS_EVM})
+source_group("Windows" FILES ${HEADERS_WINKERNEL})
 
 ### test library 64bit routine:
 include("GNUInstallDirs")
